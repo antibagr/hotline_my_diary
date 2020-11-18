@@ -58,6 +58,7 @@ class Helper():
 
 DataBaseCheckBox = Tuple[int, int, int, str]
 
+
 class Database():
 
     tablename: str = 'checkboxes'
@@ -275,11 +276,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow, MoveableWidget):
             self.showMinimized()
 
 
-
 if __name__ == '__main__':
 
     # Entry point
-
     app = QtWidgets.QApplication(sys.argv)
 
     window = MainWindow()
