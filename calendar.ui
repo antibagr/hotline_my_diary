@@ -6,36 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
-    <height>428</height>
+    <width>479</width>
+    <height>617</height>
    </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>382</width>
-    <height>428</height>
-   </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>382</width>
-    <height>428</height>
+    <width>600</width>
+    <height>680</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
+  <widget class="QWidget" name="centralwidgetl">
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.935, y1:0.5, x2:0, y2:2,
+stop: 0 rgb(138, 46, 156),
+stop: 1 rgb(20, 136, 211)
+)</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -48,1013 +39,644 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="spacing">
-       <number>0</number>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="1" column="0">
+     <widget class="QFrame" name="body">
+      <property name="toolTip">
+       <string/>
       </property>
-      <item>
-       <widget class="QFrame" name="header">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-	background-color: rgb(97, 97, 97)
+      <property name="styleSheet">
+       <string notr="true">QCheckBox {
+	border 1px solid lightgrey;
+	background-color: none;
+}
+
+QCheckBox::indicator {
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+}
+
+QCheckBox::indicator:checked {
+	 image: url(:/checkbox/src/checked.png);
+}
+
+QCheckBox::indicator:!checked {
+	image: url(:/checkbox/src/unchecked.png);
 }</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Preferred</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>10</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QComboBox" name="comboBox">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>150</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QComboBox {
-	background-color: rgb(248, 248, 248);
-	border: 2px solid rgb(66, 66, 66);
-	border-radius: 5px;
-    padding: 5px 18px 5px 20px;
-}
-
-QComboBox::hover{
-	border: 2px solid rgb(77, 207, 224);
-}
-
-QComboBox::drop-down::hover {
-	background-color: rgb(77, 207, 224);
-}
-
-QComboBox:!editable, QComboBox::drop-down:editable {
-     background-color: rgb(251, 253, 242);
-}
-
-/* QComboBox gets the &quot;on&quot; state when the popup is open */
-QComboBox:!editable:on, QComboBox::drop-down:editable:on {
-    background-color: white;
-}
-
-QComboBox::drop-down {
-    subcontrol-position: top right;
-	background-color: rgb(216, 217, 208);
-    width: 15px;
-    border-left-width: 1px;
-    border-right-color: red;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-}
-
-QComboBox QAbstractItemView {
-	
-	font: 10pt &quot;Segoe UI&quot;;
-	padding: 5px 5px 5px 5px;
-    border: 2px solid darkgray;
-	border-radius: 5px;
-	selection-background-color: lightgray;
-}
-
-QComboBox QAbstractItemView::!editable {
-	background-color: white;
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="1" column="1">
+        <widget class="Line" name="line">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="Line" name="line_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QFrame" name="Calendar">
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+	background-color: none;
+	border: 2px solid rgb(255, 170, 255);
+	border-radius: 10px;
+	padding: 15px 0px 15px 0px;
 }</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>January</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>February</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>March</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QFrame" name="body">
-        <property name="styleSheet">
-         <string notr="true">QFrame {
-	background-color: rgb(250, 250, 250);
-}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0">
-          <widget class="QFrame" name="calendar">
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Plain</enum>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_2">
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout">
             <property name="spacing">
              <number>10</number>
             </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
             </property>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
-              <item>
-               <widget class="QCheckBox" name="checkBox">
-                <property name="font">
-                 <font>
-                  <pointsize>8</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string notr="true"/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_2">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_3">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_4">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_5">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <widget class="QCheckBox" name="checkBox_1">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_6">
-              <item>
-               <widget class="QCheckBox" name="checkBox_6">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_7">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_8">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_9">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_10">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <widget class="QCheckBox" name="checkBox_2">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <item>
-               <widget class="QCheckBox" name="checkBox_11">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_12">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_13">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_14">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBox_15">
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <widget class="QCheckBox" name="checkBox_3">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
-              <item>
-               <widget class="QCheckBox" name="checkBox_16">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QCheckBox {
-	border 1px solid lightgrey;
-}
-
-QCheckBox::indicator {
-    width: 60px;
-    height: 60px;
-	border-radius: 30px;
-}
-
-QCheckBox::indicator:checked {
-	
-	image: url(:/checkbox/src/checked2.svg);
-}
-
-QCheckBox::indicator:!checked {
-   image: url(:/checkbox/src/unchecked.svg);
-}
-
-/*
-QCheckBox::indicator:!checked:hover {
-   background-color: rgba(77, 207, 224, 20)
-}
-*/
-
-QCheckBox::indicator:unchecked:pressed {
-	image: url(:/checkbox/src/unchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:hover {
-	image: url(:/checkbox/src/uchecked2.svg);
-}
-
-QCheckBox::indicator:indeterminate:pressed {
-    image: url(:/checkbox/src/checked.svg);
-}</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
+             <widget class="QCheckBox" name="checkBox_4">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_5">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
             </item>
            </layout>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Segoe UI Symbol</family>
-               <pointsize>9</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-               <underline>false</underline>
-               <strikeout>false</strikeout>
-               <stylestrategy>NoAntialias</stylestrategy>
-              </font>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="toolTip">
-              <string>Icons made by Kiranshastry
-https://www.flaticon.com/authors/kiranshastry</string>
-             </property>
-             <property name="statusTip">
-              <string/>
-             </property>
-             <property name="whatsThis">
-              <string/>
-             </property>
-             <property name="text">
-              <string>Made by Rudie</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="openExternalLinks">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>288</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-      </item>
-     </layout>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="checkBox_6">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_7">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_8">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_9">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_10">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="checkBox_11">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_12">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_13">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_14">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_15">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="checkBox_16">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_17">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_18">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_19">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_20">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="4" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="checkBox_21">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_22">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_23">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_24">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_25">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="5" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="checkBox_26">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_27">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_28">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_29">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_30">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="6" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <item>
+             <widget class="QCheckBox" name="checkBox_31">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QFrame" name="basement">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+	/* background-color: rgb(130, 130, 130) */
+	/* background-color: rgba(13, 9, 47, 100); */
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.227273 rgba(39, 39, 96, 255), stop:1 rgba(44, 15, 75, 255))
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="credentials">
+         <property name="font">
+          <font>
+           <family>Segoe UI Symbol</family>
+           <pointsize>9</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="toolTip">
+          <string>Программа</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	color: rgb(250, 250, 250);
+
+	font: 9pt &quot;Segoe UI Symbol&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>Made by @rudie_duddie</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="header">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame {
+	background-color: rgb(211, 115, 166);
+
+	background-color: qlineargradient(spread:pad, x1:0.505682, y1:0.506, x2:1, y2:0, stop:0 rgb(204, 51, 133), stop:1  rgb(212, 53, 56));
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="month">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+	color: white;
+	font: 14pt &quot;Segoe UI Symbol&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>Month</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
  </widget>
  <resources>
+  <include location="source.qrc"/>
   <include location="source.qrc"/>
  </resources>
  <connections/>
