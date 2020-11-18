@@ -3,7 +3,6 @@ import sys
 from datetime import timedelta, datetime, date
 import datetime as dt_module
 
-
 import logging
 import sqlite3
 
@@ -13,6 +12,7 @@ from PyQt5.QtCore import Qt
 from typing import List, Tuple, Union, Optional, Dict
 
 Ui_MainWindow, _ = uic.loadUiType("calendar.ui")
+Ui_About, _ = uic.loadUiType("about.ui")
 
 
 class Helper():
@@ -113,18 +113,62 @@ class Database():
         self.connection.commit()
 
 
-class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+class MoveableWidget():
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QtWidgets.QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def mousePressEvent(self, event):
+        self.oldPos = event.globalPos()
+
+    def mouseMoveEvent(self, event):
+        delta = QtCore.QPoint(event.globalPos() - self.oldPos)
+        #print(delta)
+        self.move(self.x() + delta.x(), self.y() + delta.y())
+        self.oldPos = event.globalPos()
+
+
+class AboutWindow(QtWidgets.QDialog, Ui_About, MoveableWidget):
+    def __init__(self) -> None:
+
+        QtWidgets.QDialog.__init__(self)
+        Ui_About.__init__(self)
+        self.setupUi(self)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.close_button.released.connect(self.close)
+        self.label.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        self.gif = QtGui.QMovie('src\miami.gif')
+        self.label_2.setMovie(self.gif)
+        self.gif.start()
+        self.exit_action = QtWidgets.QAction("Exit About", shortcut=QtGui.QKeySequence("Ctrl+w"), triggered=self.close)
+
+        self.addAction(self.exit_action)
+
+    def keyPressEvent(self, e):
+        if e.key() in [Qt.Key_Escape, Qt.Key_Return]:
+            self.close()
+
+
+class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow, MoveableWidget):
 
     boxes: Dict[int, QtWidgets.QCheckBox]
     size: int
     database: Database
+    resize_flag = False
+    about_window = None
 
     def __init__(self) -> None:
 
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
+        self.setup_design()
+
         self.database = Database()
+        self.about_window = AboutWindow()
 
         logging.info("Successfully create main window")
 
@@ -139,8 +183,41 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def setup_design(self) -> None:
         self.setWindowTitle(f"Hot-line my dairy")
 
-        self.month.setText(datetime.now().strftime('%B'))
-        self.month.setToolTip("Mark checkbox when you've done your daily routine. Let's gear it!")
+        self.month.setText(datetime.now().strftime('%B %Y'))
+        self.setStyleSheet("""QToolTip {
+                           background-color: black;
+                           color: white;
+                           border: black solid 1px;
+                           font: 10pt "Segoe UI Symbol";
+                           }""")
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.center()
+        self.oldPos = self.pos()
+
+        self.exit_action = QtWidgets.QAction("Exit Application", shortcut=QtGui.QKeySequence("Ctrl+w"), triggered=self.closeEvent)
+        self.addAction(self.exit_action)
+
+        self.exit.released.connect(self.closeEvent)
+        self.fullscreen.released.connect(self.ChangeSize)
+        self.minimize.released.connect(self.showMinimized)
+        self.basement.mouseReleaseEvent = self.OpenAbout
+
+        self.setAttribute(Qt.WA_TranslucentBackground)
+
+        self.show()
+
+    def OpenAbout(self, *args, **kw):
+        if not self.about_window.isVisible():
+            self.about_window.show()
+
+    def ChangeSize(self, *args, **kw):
+
+        if not self.resize_flag:
+            self.resize(550, 692)
+            self.resize_flag = True
+        else:
+            self.resize(426, 692)
+            self.resize_flag = False
 
     def connect_checkboxes(self) -> None:
 
@@ -187,11 +264,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 if i > index:
                     checkbox.setEnabled(False)
 
-    def closeEvent(self, event: QtGui.QCloseEvent):
+    def closeEvent(self, event: QtGui.QCloseEvent = None):
         self.hide()
         self.database.save_changes(self.boxes)
 
-        super().closeEvent(event)
+        self.close()
+
+    def keyPressEvent(self, e):
+        if e.key() == Qt.Key_Escape:
+            self.showMinimized()
+
 
 
 if __name__ == '__main__':
@@ -199,6 +281,7 @@ if __name__ == '__main__':
     # Entry point
 
     app = QtWidgets.QApplication(sys.argv)
+
     window = MainWindow()
-    window.show()
+
     app.exec_()

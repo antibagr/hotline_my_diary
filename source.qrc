@@ -3,4 +3,10 @@
     <file>src/checked.png</file>
     <file>src/unchecked.png</file>
   </qresource>
+  <qresource prefix="icon">
+    <file>src/favicon.ico</file>
+  </qresource>
+  <qresource prefix="gif">
+    <file>src/miami.gif</file>
+  </qresource>
 </RCC>
